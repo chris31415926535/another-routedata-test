@@ -18,3 +18,14 @@ with access to data defined at higher routes.
 Lower routes do not have access to data from higher routes. In addition, inside a lower route's
 routeData(&#123;data&#125;: RouteDataArgs)&#123; &#125;, the destructured value of data is undefined, suggesting that lower routes are indeed not
 able to access data from higher routes.</p>
+
+# To reproduce the behaviour:
+
+Clone this minimal reproducible example and run it in development mode:
+
+```
+npm i
+npm run dev
+```
+
+Navigate from the pages trunk to stem to leaf, and observe logs in the developer console and output on the pages that shows that each route only has access to variables defined with itself. Lower branches have no visibility into variables defined at higher branches.
